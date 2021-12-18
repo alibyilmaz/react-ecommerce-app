@@ -1,10 +1,25 @@
 
 import React, { Component } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+export default class MainContent extends Component {
+state = {pageTitle:"Customers", customersCount:5};
 
-export default class MainContent 
-extends Component {
-    
-        render() {
-            return <div>Hello from Main Content</div>;
+render() {
+            return (
+                <div>
+                 <h4 className="border-bottom m-1 p-1">
+                 {this.state.pageTitle}
+                  <span className="badge bg-secondary m-2">
+                    {this.state.customersCount}
+                  </span>
+                  <button className="btn btn-info" onClick={this.onRefreshClick}>Refresh</button>
+                  </h4>
+                </div>
+            );
         }
+
+onRefreshClick()
+{
+console.log("refresh clicked")
+}
     }
